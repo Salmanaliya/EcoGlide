@@ -176,7 +176,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
     z-index: 1;
 }
 
@@ -186,33 +186,32 @@ body {
     color: white;
 }
 
-h2 {
+.services-container {
+    background: rgba(255, 255, 255, 0.2); /* Semi-transparent white background */
+    backdrop-filter: blur(10px); /* Apply a blur effect */
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Slight shadow for depth */
+    max-width: 900px; /* Set max-width to control the layout */
+    width: 100%;
+    margin: 20px;
+}
+
+.services-container h2 {
     font-size: 32px;
-    color: #c8ffeb;
+    color: #c8ffeb; /* Accent color */
     margin-bottom: 30px;
     font-weight: 600;
 }
 
-h3 {
-    font-size: 32px;
-    color: #333;
-    margin-bottom: 30px;
-    font-weight: 600;
-}
-
-p {
-    font-size: 18px;
-    line-height: 1.6;
-}
-
-.services {
+.services-container .services {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
 }
 
 .service {
-    background-color: #444;
+    background: rgba(0, 0, 0, 0.5); /* Slightly transparent background for each service */
     color: #f4f4f4;
     padding: 20px;
     width: calc(33.333% - 20px);
@@ -237,48 +236,101 @@ p {
 
 /* Team Section */
 .team-section {
-    padding: 60px 0;
+    padding: 40px 0; /* Reduced padding for less vertical space */
     background-color: #333; /* Dark gray background */
     color: #f4f4f4; /* Light text color */
 }
 
 .team {
     display: flex;
-    justify-content: space-around;
+    justify-content: center; /* Center the team members */
     flex-wrap: wrap;
+    max-width: 900px; /* Set a max width for the team container */
+    margin: 0 auto; /* Center the container */
 }
 
 .team-member {
     text-align: center;
-    width: calc(33.333% - 40px);
-    margin: 20px;
+    width: calc(33.333% - 30px); /* Reduced width for a more compact layout */
+    margin: 15px; /* Reduced margin between team members */
     color: #f4f4f4; /* Light text color */
 }
 
 .team-member img {
-    width: 80px; /* Adjust width for smaller logo */
-    height: 80px; /* Maintain aspect ratio */
+    width: 60px; /* Smaller width for the logo/image */
+    height: 60px; /* Maintain aspect ratio */
     border-radius: 50%;
-    margin-bottom: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px; /* Reduced space below the image */
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1); /* Slightly smaller shadow */
 }
 
 .team-member h3 {
-    font-size: 24px;
+    font-size: 20px; /* Reduced font size for names */
     color: #c8ffeb; /* Accent color */
-    margin-bottom: 10px;
+    margin-bottom: 8px; /* Reduced space below the name */
 }
 
 .team-member p {
+    font-size: 14px; /* Reduced font size for descriptions */
     color: #e0e0e0; /* Slightly lighter gray for better readability */
+}
+
+/* Invest and Contact Section (Shared Background) */
+.invest-contact-section {
+    position: relative;
+    background-image: url('../images/investor-bg.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    padding: 60px 20px; /* Adjust padding for better spacing */
+    color: white;
+    display: flex;
+    flex-direction: column; /* Stack sections vertically */
+    align-items: center; /* Center content horizontally */
+}
+
+.invest-contact-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.invest-contact-section * {
+    position: relative;
+    z-index: 2;
+    color: white;
+}
+
+.invest-contact-content {
+    display: flex;
+    flex-direction: column; /* Stack sections vertically */
+    gap: 20px; /* Space between sections */
+    width: 100%; /* Full width for sections */
+    max-width: 1200px; /* Max width to maintain layout consistency */
 }
 
 /* Invest Section */
 .invest-section {
-    padding: 60px 0;
-    background-color: #004d33;
-    color: white;
-    text-align: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.6); /* Slightly transparent background */
+    border-radius: 8px;
+    margin-bottom: 20px;
+    width: 100%; /* Full width for the section */
+    max-width: 1000px; /* Ensure the section does not stretch too wide */
+    text-align: center; /* Center-align text and button */
+}
+
+.invest-section h3 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    color: #c8ffeb; /* Accent color */
 }
 
 .invest-section p {
@@ -288,158 +340,214 @@ p {
     line-height: 1.6;
 }
 
-.invest-section .cta-button {
-    background-color: #c8ffeb;
-    color: #004d33;
+/* Center the button */
+.button-wrapper {
+    display: flex;
+    justify-content: center;
     margin-top: 20px;
 }
 
-.invest-section .cta-button:hover {
-    background-color: #a3e7d6;
-}
-
-/* Footer */
-footer {
-    background-color: #333;
-    color: white;
-    padding: 20px 0;
-    text-align: center;
-}
-
-.footer-nav a {
+.cta-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50;
     color: white;
     text-decoration: none;
-    margin: 0 15px;
-    transition: color 0.3s;
+    border-radius: 5px;
+    transition: background-color 0.3s;
 }
 
-.footer-nav a:hover {
-    color: #c8ffeb;
+.cta-button:hover {
+    background-color: #a3e7d6;
 }
 
 /* Contact Section */
 .contact-section {
-    padding: 60px 0;
-    background-color: #f4f4f4; /* Light background color */
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7); /* Slightly darker background */
+    border-radius: 8px;
+    width: 100%; /* Full width for the section */
+    max-width: 1000px; /* Ensure the section does not stretch too wide */
+    margin: 0 auto; /* Center the section */
 }
 
 .contact-content {
     display: flex;
-    align-items: flex-start; /* Align items at the top */
-    gap: 20px; /* Space between logo and contact info */
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    flex-direction: column; /* Stack content vertically */
+    align-items: center; /* Center content horizontally */
+    gap: 20px; /* Space between elements */
 }
 
 .contact-logo {
-    flex: 0 0 150px; /* Fixed width for the logo */
-    max-width: 150px; /* Ensure logo doesn't exceed max-width */
+    max-width: 100px;
 }
 
 .contact-logo img {
     width: 100%;
-    height: auto; /* Ensure aspect ratio is maintained */
+    height: auto;
 }
 
 .contact-info {
-    flex: 1; /* Take up remaining space */
+    text-align: center; /* Center text for better readability */
 }
 
 .contact-info h3 {
-    margin-bottom: 10px; /* Space below the heading */
+    font-size: 28px; /* Adjusted font size */
+    margin-bottom: 10px;
+    color: #c8ffeb; /* Accent color for visibility */
 }
 
 .contact-info p {
-    margin-bottom: 20px; /* Space below the paragraph */
+    margin-bottom: 20px;
+    color: #e0e0e0; /* Lighter gray for better readability */
 }
 
 .contact-details {
     display: flex;
-    justify-content: center; /* Center icons horizontally */
-    align-items: center; /* Center icons vertically */
-    gap: 20px; /* Space between icons */
+    justify-content: center; /* Center contact icons horizontally */
+    gap: 20px;
 }
 
 .contact-link {
-    font-size: 24px; /* Adjust icon size as needed */
-    color: #333; /* Adjust color to fit your design */
-    text-decoration: none; /* Remove underline */
+    font-size: 24px; /* Increased font size for better visibility */
+    color: #fff;
+    text-decoration: none;
 }
 
 .contact-link:hover {
-    color: #007bff; /* Change color on hover if desired */
+    color: #007bff; /* Change color on hover for better interaction */
 }
 
-/* Media Queries for Mobile View */
+.loader {
+    border: 8px solid #f3f3f3; /* Light grey */
+    border-top: 8px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1.5s linear infinite;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3; /* Ensure it is above other elements */
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Footer */
+footer {
+    background: #444 ;/* Dark gray with some transparency */
+    backdrop-filter: blur(10px); /* Apply a blur effect for a glassy look */
+    color: white;
+    padding: 20px 0;
+    position: relative;
+    z-index: 2;
+}
+
+.footer-nav {
+    display: flex;
+    justify-content: center; /* Center the navigation links */
+    flex-wrap: wrap;
+    gap: 15px; /* Space between links */
+    margin-bottom: 10px;
+}
+
+.footer-nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.footer-nav a:hover {
+    color: #c8ffeb; /* Accent color for hover effect */
+}
+
+footer p {
+    text-align: center;
+    margin: 0;
+    font-size: 14px;
+}
+
+/* Media Queries for Mobile Devices */
 @media (max-width: 768px) {
-    .navbar {
-        padding: 10px 5px;
-    }
-
-    .navbar a {
-        padding: 5px;
-        font-size: 14px;
-    }
-
     .hero-section {
-        height: auto; /* Adjust height for mobile */
-        padding: 20px;
+        height: 80vh; /* Reduce height for smaller screens */
     }
 
     .hero-content {
         padding: 10px;
     }
 
-    .services {
-        flex-direction: column;
+    .services-container {
+        padding: 15px;
+        margin: 10px;
     }
 
     .service {
-        width: 100%; /* Full width for mobile */
-        margin: 10px 0;
+        width: calc(50% - 20px); /* Two columns on smaller screens */
     }
 
     .team-member {
-        width: 100%; /* Full width for mobile */
-        margin: 10px 0;
+        width: calc(50% - 30px); /* Two columns on smaller screens */
     }
 
-    .contact-content {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
+    .navbar a {
+        padding: 0 10px; /* Reduce padding for smaller screens */
     }
 
     .contact-logo {
-        margin-bottom: 20px; /* Space below the logo on mobile */
+        max-width: 80px; /* Reduce logo size for smaller screens */
+    }
+
+    .contact-info h3 {
+        font-size: 24px; /* Adjust font size for better readability */
+    }
+
+    .contact-info p {
+        font-size: 14px; /* Adjust font size for better readability */
     }
 }
 
 @media (max-width: 480px) {
-    .hero-section h1 {
-        font-size: 36px; /* Smaller font size for mobile */
+    .hero-section {
+        height: 60vh; /* Further reduce height for very small screens */
     }
 
-    .hero-content h1 {
-        font-size: 32px; /* Adjust heading size */
+    .hero-content {
+        padding: 5px;
     }
 
-    .hero-content p {
-        font-size: 16px; /* Adjust paragraph size */
+    .services-container {
+        padding: 10px;
+        margin: 5px;
     }
 
-    .services-section h2 {
-        font-size: 28px; /* Adjust heading size */
+    .service {
+        width: 100%; /* Single column on very small screens */
     }
 
-    .service h3 {
-        font-size: 24px; /* Adjust heading size */
+    .team-member {
+        width: 100%; /* Single column on very small screens */
     }
 
-    .team-member h3 {
-        font-size: 20px; /* Adjust heading size */
+    .navbar a {
+        padding: 0 5px; /* Further reduce padding for very small screens */
+        font-size: 14px; /* Reduce font size */
+    }
+
+    .contact-logo {
+        max-width: 60px; /* Further reduce logo size for very small screens */
+    }
+
+    .contact-info h3 {
+        font-size: 20px; /* Adjust font size for better readability */
     }
 
     .contact-info p {
-        font-size: 16px; /* Adjust paragraph size */
+        font-size: 12px; /* Adjust font size for better readability */
     }
 }
