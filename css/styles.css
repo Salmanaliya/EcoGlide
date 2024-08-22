@@ -95,7 +95,7 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    height: 70vh; /* Adjusted for better visibility */
+    height: 100vh; /* Adjusted for better visibility */
     display: flex;
     align-items: center;
     justify-content: center;
