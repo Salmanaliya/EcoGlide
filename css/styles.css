@@ -13,7 +13,7 @@ body {
     color: #333;
 }
 
-/* Container should be adjusted for better responsiveness */
+/* Container for responsive layout */
 .container {
     width: 85%;
     margin: 0 auto;
@@ -35,7 +35,7 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: 1; /* Ensure video is behind the overlay */
+    z-index: 1;
 }
 
 .overlay {
@@ -47,8 +47,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgba(0, 0, 0, 0.5); /* Adjust opacity */
-    z-index: 2; /* Ensure overlay is above the video */
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2;
 }
 
 .overlay h1 {
@@ -65,22 +65,24 @@ body {
     width: 100%;
     background-color: rgba(0, 0, 0, 0.7);
     color: white;
-    z-index: 3; /* Ensure it appears above the video */
-    padding: 10px 0;
+    z-index: 3;
+    padding: 5px 0; /* Reduced padding */
+    font-size: 14px; /* Smaller font size */
 }
 
 .navbar .container {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap; /* Add wrapping for mobile */
+    flex-wrap: wrap;
 }
+ 
 
 .navbar a {
     color: white;
     text-decoration: none;
-    padding: 0 15px;
+    padding: 0 10px; /* Reduced padding */
     font-weight: 600;
-    line-height: 1.6;
+    line-height: 1.4; /* Adjusted line height */
     transition: color 0.3s;
 }
 
@@ -88,30 +90,61 @@ body {
     color: #c8ffeb;
 }
 
+
 /* Hero Section */
 .hero-section {
-    background-image: url('../images/hero-image.webp');
+    position: relative;
+    background-image: url('../images/hero-image.webp'); /* Background image */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    height: 100vh; /* Adjusted for better visibility */
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    height: 100vh; /* Full screen height */
     color: white;
-    text-align: center;
+    display: flex;
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    box-shadow: 0 -5px 0 0 rgba(0, 0, 0, 0.7), 0 5px 0 0 rgba(0, 0, 0, 0.7); /* Black border effect */
+
 }
 
-.hero-content {
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    z-index: 1;
+}
+
+.hero-section .glassy-container {
+    background: rgba(255, 255, 255, 0.2); /* Semi-transparent white background */
+    backdrop-filter: blur(10px); /* Glassy blur effect */
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 8px;
+    text-align: center;
+    z-index: 2; /* Ensure it's above the overlay */
+    position: relative; /* To stay above the pseudo-element */
 }
 
-.cta-button {
+.hero-section h1 {
+    font-size: 40px;
+    color: #c8ffeb; /* Color matching with glassy theme */
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.hero-section p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #f4f4f4;
+}
+
+.hero-section .cta-button {
     display: inline-block;
     margin-top: 20px;
     padding: 10px 20px;
@@ -122,24 +155,21 @@ body {
     transition: background-color 0.3s;
 }
 
-.cta-button:hover {
+.hero-section .cta-button:hover {
     background-color: #45a049;
 }
 
 /* About Section */
- 
- 
- /* About Section */
 .about-section {
     position: relative;
-    padding: 25px 0; /* Reduced padding */
-    background-color: #2c2b2b;
+    height: 100vh;
+    background-color: #444;
     color: #f4f4f4;
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url('../images/about-bg.webp'); /* Optional: add background image */
+    background-image: url('../images/about-image.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -153,7 +183,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: '#2c2b2b'; /* Dark overlay */
+    background-color: rgba(0, 0, 0, 0.5);
     z-index: 1;
 }
 
@@ -162,19 +192,77 @@ body {
     z-index: 2;
 }
 
+.about-container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    max-width: 700px;
+    margin: 20px;
+}
+
 .about-section h2 {
-    font-size: 28px; /* Slightly smaller font size */
-    color: #c8ffeb; /* Accent color */
+    font-size: 28px;
+    color: #c8ffeb;
     margin-bottom: 20px;
     font-weight: 600;
 }
 
 .about-section p {
-    font-size: 16px; /* Slightly smaller font size */
+    font-size: 16px;
     line-height: 1.6;
     color: #f4f4f4;
 }
 
+
+/* Market Potential Section */
+.market-potential-section {
+    position: relative;
+    background-image: url('../images/market-bg.webp'); /* Background image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100vh; /* Full screen height */
+    color: white;
+    display: flex;
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+}
+
+.market-potential-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    z-index: 1;
+}
+
+.market-potential-container {
+    max-width: 800px; /* Adjust width as needed */
+    width: 100%;
+    position: relative;
+    z-index: 2; /* Ensure it's above the overlay */
+    text-align: center; /* Center text */
+    padding: 20px;
+}
+
+.market-potential-section h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    color: #c8ffeb;
+}
+
+.market-potential-section p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #f4f4f4;
+}
 
 
 /* Services Section */
@@ -199,7 +287,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    background-color: rgba(0, 0, 0, 0.5);
     z-index: 1;
 }
 
@@ -210,19 +298,19 @@ body {
 }
 
 .services-container {
-    background: rgba(255, 255, 255, 0.2); /* Semi-transparent white background */
-    backdrop-filter: blur(10px); /* Apply a blur effect */
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
     border-radius: 10px;
     padding: 20px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Slight shadow for depth */
-    max-width: 900px; /* Set max-width to control the layout */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    max-width: 900px;
     width: 100%;
     margin: 20px;
 }
 
 .services-container h2 {
     font-size: 32px;
-    color: #c8ffeb; /* Accent color */
+    color: #c8ffeb;
     margin-bottom: 30px;
     font-weight: 600;
 }
@@ -234,7 +322,7 @@ body {
 }
 
 .service {
-    background: rgba(0, 0, 0, 0.5); /* Slightly transparent background for each service */
+    background: rgba(0, 0, 0, 0.5);
     color: #f4f4f4;
     padding: 20px;
     width: calc(33.333% - 20px);
@@ -245,7 +333,7 @@ body {
 }
 
 .service h3 {
-    color: #c8ffeb; 
+    color: #c8ffeb;
 }
 
 .service p {
@@ -259,101 +347,192 @@ body {
 
 /* Team Section */
 .team-section {
-    padding: 40px 0; /* Reduced padding for less vertical space */
-    background-color: #2c2b2b; /* Dark gray background */
-    color: #f4f4f4; /* Light text color */
-}
-
-.team {
-    display: flex;
-    justify-content: center; /* Center the team members */
-    flex-wrap: wrap;
-    max-width: 900px; /* Set a max width for the team container */
-    margin: 0 auto; /* Center the container */
-}
-
-.team-member {
-    text-align: center;
-    width: calc(33.333% - 30px); /* Reduced width for a more compact layout */
-    margin: 15px; /* Reduced margin between team members */
-    color: #f4f4f4; /* Light text color */
-}
-
-.team-member img {
-    width: 60px; /* Smaller width for the logo/image */
-    height: 60px; /* Maintain aspect ratio */
-    border-radius: 50%;
-    margin-bottom: 10px; /* Reduced space below the image */
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1); /* Slightly smaller shadow */
-}
-
-.team-member h3 {
-    font-size: 20px; /* Reduced font size for names */
-    color: #c8ffeb; /* Accent color */
-    margin-bottom: 8px; /* Reduced space below the name */
-}
-
-.team-member p {
-    font-size: 14px; /* Reduced font size for descriptions */
-    color: #e0e0e0; /* Slightly lighter gray for better readability */
-}
-
-/* Invest and Contact Section (Shared Background) */
-.invest-contact-section {
     position: relative;
-    background-image: url('../images/investor-bg.webp');
+    background-image: url('../images/team-bg.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    padding: 60px 20px; /* Adjust padding for better spacing */
+    height: 100vh;
     color: white;
     display: flex;
-    flex-direction: column; /* Stack sections vertically */
-    align-items: center; /* Center content horizontally */
+    align-items: center;
+    justify-content: center;
 }
 
-.invest-contact-section::before {
+.team-section::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.6);
     z-index: 1;
 }
 
-.invest-contact-section * {
+.container {
     position: relative;
     z-index: 2;
-    color: white;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
 }
 
-.invest-contact-content {
+.team {
     display: flex;
-    flex-direction: column; /* Stack sections vertically */
-    gap: 20px; /* Space between sections */
-    width: 100%; /* Full width for sections */
-    max-width: 1200px; /* Max width to maintain layout consistency */
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.team-member {
+    text-align: center;
+    width: calc(33.333% - 30px);
+    margin: 15px;
+    color: #f4f4f4;
+}
+
+.team-member img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.team-member h3 {
+    font-size: 20px;
+    color: #c8ffeb;
+    margin-bottom: 8px;
+}
+
+.team-member p {
+    font-size: 14px;
+    color: #e0e0e0;
+}
+
+.glassy-container {
+    background: rgba(255, 255, 255, 0.2); /* Semi-transparent white background */
+    backdrop-filter: blur(10px); /* Glassy blur effect */
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Contact Section */
+.contact-section {
+    position: relative;
+    background-image: url('../images/about-image.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100vh; /* Full screen height */
+    color: white;
+    display: flex;
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+}
+
+.contact-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    z-index: 1;
+}
+
+.contact-container {
+    max-width: 800px; /* Adjust width as needed */
+    width: 100%;
+    position: relative;
+    z-index: 2; /* Ensure it's above the overlay */
+}
+
+/* Contact Logo */
+.contact-logo {
+    max-width: 80px; /* Adjusted size */
+    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.2); /* Semi-transparent white */
+    backdrop-filter: blur(10px); /* Glassy effect */
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Contact Heading */
+.contact-section h3 {
+    font-size: 32px; /* Larger font size */
+    margin-bottom: 10px;
+    color: #c8ffeb;
+}
+
+/* Contact Paragraph */
+.contact-section p {
+    margin-bottom: 20px;
+    color: #e0e0e0;
+}
+
+/* Contact Details */
+.contact-details {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.contact-link {
+    font-size: 24px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.contact-link:hover {
+    color: #007bff;
 }
 
 /* Invest Section */
 .invest-section {
-    padding: 20px;
-    background-color: rgba(0, 0, 0, 0.6); /* Slightly transparent background */
-    border-radius: 8px;
-    margin-bottom: 20px;
-    width: 100%; /* Full width for the section */
-    max-width: 1000px; /* Ensure the section does not stretch too wide */
-    text-align: center; /* Center-align text and button */
+    position: relative;
+    background-image: url('../images/investor-bg.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100vh; /* Full screen height */
+    color: white;
+    display: flex;
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
 }
 
-.invest-section h3 {
+.invest-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    z-index: 1;
+}
+
+.invest-container {
+    max-width: 800px; /* Adjust width as needed */
+    width: 100%;
+    position: relative;
+    z-index: 2; /* Ensure it's above the overlay */
+}
+
+.invest-section h2 {
     font-size: 32px;
     margin-bottom: 20px;
     font-weight: 600;
-    color: #c8ffeb; /* Accent color */
+    color: #c8ffeb;
 }
 
 .invest-section p {
@@ -384,63 +563,6 @@ body {
     background-color: #a3e7d6;
 }
 
-/* Contact Section */
-.contact-section {
-    padding: 20px;
-    background-color: rgba(0, 0, 0, 0.7); /* Slightly darker background */
-    border-radius: 8px;
-    width: 100%; /* Full width for the section */
-    max-width: 1000px; /* Ensure the section does not stretch too wide */
-    margin: 0 auto; /* Center the section */
-}
-
-.contact-content {
-    display: flex;
-    flex-direction: column; /* Stack content vertically */
-    align-items: center; /* Center content horizontally */
-    gap: 20px; /* Space between elements */
-}
-
-.contact-logo {
-    max-width: 100px;
-}
-
-.contact-logo img {
-    width: 100%;
-    height: auto;
-}
-
-.contact-info {
-    text-align: center; /* Center text for better readability */
-}
-
-.contact-info h3 {
-    font-size: 28px; /* Adjusted font size */
-    margin-bottom: 10px;
-    color: #c8ffeb; /* Accent color for visibility */
-}
-
-.contact-info p {
-    margin-bottom: 20px;
-    color: #e0e0e0; /* Lighter gray for better readability */
-}
-
-.contact-details {
-    display: flex;
-    justify-content: center; /* Center contact icons horizontally */
-    gap: 20px;
-}
-
-.contact-link {
-    font-size: 24px; /* Increased font size for better visibility */
-    color: #fff;
-    text-decoration: none;
-}
-
-.contact-link:hover {
-    color: #007bff; /* Change color on hover for better interaction */
-}
-
 .loader {
     border: 8px solid #f3f3f3; /* Light grey */
     border-top: 8px solid #3498db; /* Blue */
@@ -459,6 +581,115 @@ body {
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+
+.last-screen-section {
+    position: relative;
+    background-color: #000000;
+    color: white;
+    padding: 20px 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.last-screen-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.last-screen-section h3 {
+    font-size: 32px;
+    margin-bottom: 10px;
+    color: #c8ffeb;
+}
+
+.arrow {
+    font-size: 24px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.left-arrow {
+    margin-right: 10px;
+}
+
+.right-arrow {
+    margin-left: 10px;
+}
+
+.last-screen-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    text-align: center;
+}
+
+.last-screen-list {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    padding: 10px 0;
+    scroll-behavior: smooth;
+    align-items: center;
+    scroll-snap-type: x mandatory;
+    cursor: grab;
+    flex: 1;
+}
+
+.last-screen-list:active {
+    cursor: grabbing;
+}
+
+.last-screen-item {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    color: white;
+    text-align: center;
+    flex: 0 0 auto;
+    max-width: 300px;
+    max-height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    scroll-snap-align: center;
+}
+
+.last-screen-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 15px;
+    transition: transform 0.3s ease, z-index 0s;
+}
+
+.last-screen-item.active .last-screen-image {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.5);
+    max-width: 50vw;
+    max-height: 50vh;
+    z-index: 1000;
+    cursor: pointer;
+    border-radius: 15px; /* Ensure rounded corners */
 }
 
 /* Footer */
@@ -495,7 +726,6 @@ footer p {
     margin: 0;
     font-size: 14px;
 }
-
 /* Media Queries for Mobile Devices */
 @media (max-width: 768px) {
     .hero-section {
@@ -575,3 +805,165 @@ footer p {
         font-size: 12px; /* Adjust font size for better readability */
     }
 }
+/* How It Works Section */
+.how-it-works-section {
+    position: relative;
+    background-image: url('../images/work-bg.webp'); /* Background image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100vh; /* Full screen height */
+    color: white;
+    display: flex;
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    text-align: center;
+}
+
+.how-it-works-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    z-index: 1;
+}
+
+.how-it-works-container {
+    max-width: 900px; /* Adjust width as needed */
+    width: 100%;
+    position: relative;
+    z-index: 2; /* Ensure it's above the overlay */
+    padding: 20px;
+}
+
+.how-it-works-section h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    color: #c8ffeb;
+}
+
+.how-it-works-section p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #f4f4f4;
+    margin-bottom: 30px;
+}
+
+/* Steps Container */
+.steps-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.step {
+    background: rgba(255, 255, 255, 0.1); /* Semi-transparent white background */
+    backdrop-filter: blur(8px); /* Glassy effect */
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    color: #f4f4f4;
+}
+
+.step h3 {
+    font-size: 24px;
+    color: #c8ffeb;
+    margin-bottom: 10px;
+}
+
+.step p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    .how-it-works-section {
+        height: auto; /* Adjust height for smaller screens */
+        padding: 20px; /* Add padding */
+    }
+
+    .how-it-works-section h2 {
+        font-size: 28px; /* Adjust font size */
+    }
+
+    .how-it-works-section p {
+        font-size: 16px; /* Adjust font size */
+    }
+
+    .steps-container {
+        gap: 10px;
+    }
+
+    .step {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .how-it-works-section {
+        height: auto; /* Adjust height */
+        padding: 15px; /* Add padding */
+    }
+
+    .how-it-works-section h2 {
+        font-size: 24px; /* Adjust font size */
+    }
+
+    .how-it-works-section p {
+        font-size: 14px; /* Adjust font size */
+    }
+
+    .steps-container {
+        gap: 5px;
+    }
+
+    .step {
+        padding: 10px;
+    }
+}
+
+/* Add black border above and below background images */
+section::before, section::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 20px; /* Increased height for a thicker border */
+    background-color: black; /* Color of the border */
+    left: 0;
+    z-index: 3; /* Ensure it is above other elements */
+}
+
+/* Add black border above and below background images */
+section::before, section::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 20px; /* Increased height for a thicker border */
+    background-color: black; /* Color of the border */
+    left: 0;
+    z-index: 3; /* Ensure it is above other elements */
+}
+
+/* Place the border above and below the background image */
+section::before {
+    top: 0;
+}
+
+section::after {
+    bottom: 0;
+}
+
+/* Adjust the sections to accommodate the borders */
+.hero-section, .about-section, .market-potential-section, .services-section, .team-section, .contact-section, .invest-section, .how-it-works-section {
+    position: relative;
+    padding-top: 20px; /* Space for the top border */
+    padding-bottom: 20px; /* Space for the bottom border */
+    overflow: hidden;
+}
+ 

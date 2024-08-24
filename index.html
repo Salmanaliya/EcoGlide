@@ -3,169 +3,301 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EcoGlide Tours</title>
+    <title>EcoGlide Tours - Sustainable Sightseeing</title>
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="icon" href="images/logo.png" type="image/png">
+    <link rel="icon" href="images/logo.webp" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
-     
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
+ 
     <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="container">
-            <a href="#home">Home</a>
+            
+            <a href="#hero">Home</a>
             <a href="#about">About Us</a>
+            <a href="#how-it-works">How It Works</a>
             <a href="#services">Services</a>
+            <a href="#market-potential">Market Potential</a>
             <a href="#team">Our Team</a>
             <a href="#invest">Investors</a>
+            <a href="#last-screen">Our Offerings</a>
             <a href="#contact">Contact</a>
+
         </div>
     </nav>
 
     <!-- Video Section -->
     <section id="video-section" class="video-section">
-        <div id="loader" class="loader"></div> <!-- Loading spinner -->
+        <div id="loader" class="loader"></div>
         <div class="overlay">
             <h1>Welcome to EcoGlide Tours</h1>
-        </div>
+         </div>
         <video id="background-video" autoplay muted loop class="background-video">
             <source src="images/intro-video.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
     </section>
 
-    
-    
-
-    <section id="home" class="hero-section">
-        <div class="container">
-            <div class="hero-content">
-                <h1>EcoGlide Tours</h1>
-                <p>Experience the beauty of nature with our sustainable and modern carriage tours.</p>
+    <!-- Hero Section -->
+    <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="glassy-container">
+                <h1>Welcome to EcoGlide</h1>
+                <p>Experience the future of sustainable tourism with our eco-friendly, electric carriages.</p>
                 <a href="#services" class="cta-button">Learn More</a>
+            </div>
+        </section>
+
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="about-container">
+            <h2>About Us</h2>
+            <p>EcoGlide is on a mission to redefine urban sightseeing through innovative, eco-friendly transportation solutions. Inspired by the charm of traditional horse-drawn carriages, our electric carriages provide a sustainable alternative, combining nostalgic elegance with modern technology. Our zero-emission vehicles ensure a quiet and clean experience, promoting sustainable tourism and reducing carbon footprints in popular tourist destinations.</p>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works-section">
+        <div class="how-it-works-container glassy-container">
+            <h2>How It Works</h2>
+            <p>EcoGlide offers an easy-to-use mobile app, allowing customers to book or hail electric carriages for city tours and scenic rides. Our carriages, designed with comfort and style in mind, are equipped with GPS navigation and multimedia systems to enhance the touring experience. Whether you're exploring heritage sites, parks, or iconic city landmarks, EcoGlide provides an unforgettable journey that aligns with sustainable travel practices.</p>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+        <div class="services-container">
+            <h2>Our Services</h2>
+            <div class="services">
+                <div class="service">
+                    <h3>Heritage Tours</h3>
+                    <p>Explore historical sites and cultural landmarks with guided tours using our silent, eco-friendly carriages.</p>
+                </div>
+                <div class="service">
+                    <h3>City Rides</h3>
+                    <p>Enjoy leisurely rides through bustling city streets, experiencing the sights and sounds from a new perspective.</p>
+                </div>
+                <div class="service">
+                    <h3>Private Events</h3>
+                    <p>Book our carriages for weddings, corporate events, or special occasions, offering a unique and memorable experience.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <script>
-       document.addEventListener("DOMContentLoaded", function() {
-    var video = document.getElementById("background-video");
-    var loader = document.getElementById("loader");
+    <!-- Market Potential Section -->
+    <section id="market-potential" class="market-potential-section">
+        <div class="market-potential-container glassy-container">
+            <h2>Market Potential</h2>
+            <p>The global market for sustainable tourism is rapidly expanding, with travelers increasingly seeking eco-friendly options. EcoGlide caters to this growing demand by providing a unique and sustainable way to explore cities. Our business model is scalable, targeting popular tourist destinations, urban areas, and heritage sites globally. With our commitment to innovation and sustainability, EcoGlide is poised to capture a significant share of the eco-tourism market.</p>
+        </div>
+    </section>
 
-        video.addEventListener('canplaythrough', function() {
-            loader.style.display = 'none';
-            video.style.display = 'block';
-        });
+    <!-- Our Team Section -->
+    <section id="team" class="team-section">
+        <div class="container glassy-container">
+            <h2>Our Team</h2>
+            <div class="team">
+                <div class="team-member">
+                    <img src="images/founder.png" alt="Founder Image">
+                    <h3>Abusalman Alhaj (Founder)</h3>
+                    <p>Entrepreneur with a passion for sustainable tourism and innovative business solutions. Leading EcoGlide towards a greener future.</p>
+                </div>
+                <!-- Add more team members as needed -->
+            </div>
+        </div>
+    </section>
 
-        // Additional fallback
-        video.addEventListener('loadeddata', function() {
-            loader.style.display = 'none';
-            video.style.display = 'block';
+    <!-- Investors Section -->
+    <section id="invest" class="invest-section">
+        <div class="invest-container glassy-container">
+            <h2>Invest with Us</h2>
+            <p>EcoGlide is at the forefront of sustainable urban transportation. We invite investors to join us in transforming the way people explore cities. Our electric carriages offer a unique blend of tradition and technology, appealing to environmentally conscious travelers. Contact us to learn more about investment opportunities and how you can be a part of our journey to create a sustainable future for tourism.</p>
+            <a href="mailto:invest@ecoglides.com" class="contact-link">Email Us</a>
+        </div>
+    </section>
+
+   
+
+    <section id="last-screen" class="last-screen-section">
+        <div class="last-screen-container">
+            <!-- Left Arrow -->
+            <div class="arrow left-arrow">&#9664;</div>
+    
+            <!-- Content Container -->
+            <div class="last-screen-content">
+                <h3>Explore Our Offerings</h3>
+    
+                <!-- Image List -->
+                <div class="last-screen-list">
+                    <!-- Image Items -->
+                    <div class="last-screen-item">
+                        <img src="images/hero-image.webp" alt="Description 1" class="last-screen-image">
+                    </div>                          
+                    <div class="last-screen-item">
+                        <img src="images/image-side.webp" alt="Description 2" class="last-screen-image">
+                    </div>
+                    <div class="last-screen-item">
+                        <img src="images/about-image.webp" alt="Description 3" class="last-screen-image">
+                    </div>
+                    <div class="last-screen-item">
+                        <img src="images/investor-bg.webp" alt="Description 4" class="last-screen-image">
+                    </div>
+                    <div class="last-screen-item">
+                        <img src="images/market-bg.webp" alt="Description 1" class="last-screen-image">
+                    </div>
+                    <div class="last-screen-item">
+                        <img src="images/side-image.webp" alt="Description 2" class="last-screen-image">
+                    </div>
+                    <div class="last-screen-item">
+                        <img src="images/team-bg.webp" alt="Description 3" class="last-screen-image">
+                    </div>
+                    <div class="last-screen-item">
+                        <img src="images/work-bg.webp" alt="Description 4" class="last-screen-image">
+                    </div>
+                    <!-- Add more items as needed -->
+                </div>
+            </div>
+    
+            <!-- Right Arrow -->
+            <div class="arrow right-arrow">&#9654;</div>
+        </div>
+    </section>
+    
+
+     <!-- Contact Section -->
+     <section id="contact" class="contact-section">
+        <div class="contact-container glassy-container">
+            <img src="images/logo.png" alt="EcoGlide Logo" class="contact-logo">
+            <h3>Contact Us</h3>
+            <p>Have questions, feedback, or interested in partnership opportunities? We'd love to hear from you. Reach out using the contact details below.</p>
+            <div class="contact-details">
+                <a href="mailto:abusalman.munshorsemen@gmail.com" class="contact-link" title="Email us at abusalman.munshorsemen@gmail.com">
+                    <i class="fas fa-envelope"></i> Email
+                </a>
+                <a href="tel:+919789689001" class="contact-link" title="Call us at +91 97896 89001">
+                    <i class="fas fa-phone"></i> Call
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const swipeWrapper = document.querySelector('.last-screen-list');
+    const leftArrow = document.querySelector('.left-arrow');
+    const rightArrow = document.querySelector('.right-arrow');
+    const items = document.querySelectorAll('.last-screen-item');
+    const section = document.querySelector('.last-screen-section');
+
+    const scrollAmount = 300; // Amount to scroll with each arrow click
+
+    function scrollContainer(direction) {
+        const scrollLeft = swipeWrapper.scrollLeft;
+
+        if (direction === 'left') {
+            swipeWrapper.scrollTo({
+                left: scrollLeft - scrollAmount,
+                behavior: 'smooth'
+            });
+        } else if (direction === 'right') {
+            swipeWrapper.scrollTo({
+                left: scrollLeft + scrollAmount,
+                behavior: 'smooth'
+            });
+        }
+    }
+
+    leftArrow.addEventListener('click', () => scrollContainer('left'));
+    rightArrow.addEventListener('click', () => scrollContainer('right'));
+
+    items.forEach(item => {
+        item.addEventListener('click', function (event) {
+            event.stopPropagation(); // Prevent event from bubbling up to the document
+            this.classList.toggle('active');
+            if (this.classList.contains('active')) {
+                section.classList.add('active');
+            } else {
+                section.classList.remove('active');
+            }
         });
     });
+
+    document.addEventListener('click', function () {
+        items.forEach(item => {
+            if (item.classList.contains('active')) {
+                item.classList.remove('active');
+            }
+        });
+        section.classList.remove('active');
+    });
+
+    // Close expanded image on scroll immediately
+    window.addEventListener('scroll', function () {
+        items.forEach(item => {
+            if (item.classList.contains('active')) {
+                item.classList.remove('active');
+            }
+        });
+        section.classList.remove('active');
+    });
+
+    // Prevent clicks inside the list from closing the expanded image
+    swipeWrapper.addEventListener('click', function (event) {
+        event.stopPropagation();
+    });
+});
+
 
     </script>
     
     
-    <section id="about" class="about-section">
-        <div class="about-container">
-            <h2>About Us</h2>
-            <p>Welcome to EcoGlide! We’re transforming sightseeing with our eco-friendly, electric carriages. Inspired by the charm of traditional horse-drawn tours, our innovative, horseless carriages provide a sustainable alternative that reduces traffic congestion and carbon emissions. We blend nostalgic elegance with modern technology to deliver a clean, quiet, and enjoyable touring experience. Explore scenic routes and heritage sites with comfort while supporting our commitment to greener travel. Experience the magic of EcoGlide and join us in making sightseeing both enchanting and eco-friendly.</p>
-        </div>
-    </section>
-    
     
 
-    <section id="services" class="services-section">
-        <div class="services-container"> <!-- New wrapper for glassy effect -->
-            <h2>Our Services</h2>
-            <div class="services">
-                <div class="service">
-                    <h3>Guided Tours</h3>
-                    <p>Enjoy a guided tour through beautiful landscapes with our electric carriages.</p>
-                </div>
-                <div class="service">
-                    <h3>Private Bookings</h3>
-                    <p>Book a private carriage for special occasions and exclusive experiences.</p>
-                </div>
-                <div class="service">
-                    <h3>Custom Routes</h3>
-                    <p>Create your own route and explore at your own pace.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
 
-    <!-- Our Team Section -->
-    <section id="team" class="team-section">
+
+
+    <!-- Footer -->
+    <footer>
         <div class="container">
-            <h2>Our Team</h2>
-            <div class="team">
-                <div class="team-member">
-                    <img src="images/founder.png" alt="Team Member 1">
-                    <h3>Abusalman Alhaj (Founder)</h3>
-                    <p>entrepreneur with a passion for sustainable tourism and innovative business solutions.</p>
-                </div>
-                 
+            <div class="footer-nav">
+                <a href="#hero">Home</a>
+                <a href="#about">About Us</a>
+                <a href="#how-it-works">How It Works</a>
+                <a href="#services">Services</a>
+                <a href="#market-potential">Market Potential</a>
+                <a href="#team">Our Team</a>
+                <a href="#invest">Investors</a>
+                <a href="#last-screen">Our Offerings</a>
+                <a href="#contact">Contact</a>
             </div>
+           <div>
+            <p>&copy; 2024 EcoGlide Tours. All rights reserved.</p>
         </div>
-    </section>
-
-    <section id="invest-contact" class="invest-contact-section">
-        <div class="container">
-            <div class="invest-contact-content">
-                <!-- Investor Section -->
-             <div id="invest" class="invest-section">
-                <h3>Invest in Our Vision</h3>
-                <p>Join us in revolutionizing the tourism industry. Our eco-friendly carriage tours are set to redefine sustainable travel experiences. Learn more about our financial projections, market potential, and the impact your investment can make.</p>
-                <div class="button-wrapper"> <!-- Added wrapper for centering -->
-                    <a href="investor-pitch-deck.pdf" class="cta-button" download>Download Pitch Deck</a>
-                </div>
-            </div>
-
-
-                <!-- Contact Section -->
-                <div id="contact" class="contact-section">
-                    <div class="contact-content">
-                        <div class="contact-logo">
-                            <img src="images/logo.png" alt="EcoGlide Logo"> <!-- Logo image -->
-                        </div>
-                        <div class="contact-info">
-                            <h3>Contact Us</h3>
-                            <p>If you have any questions, feedback, or partnership inquiries, we’d love to hear from you. Feel free to reach out using the contact details below.</p>
-                            <div class="contact-details">
-                                <a href="mailto:abusalman.munshorsemen@gmail.com" class="contact-link" title="Email us at abusalman.munshorsemen@gmail.com">
-                                    <i class="fas fa-envelope"></i>
-                                </a>
-                                <a href="tel:+919789689001" class="contact-link" title="Call us at +91 97896 89001">
-                                    <i class="fas fa-phone"></i>
-                                </a>
-                            </div>
-                            
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
-    </section>
-    
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    </footer>
 
- <footer>
-    <div class="container">
-        <div class="footer-nav">
-            <a href="#home">Home</a>
-            <a href="#about">About Us</a>
-            <a href="#services">Services</a>
-            <a href="#team">Our Team</a>
-            <a href="#invest">Investors</a>
-            <a href="#contact">Contact</a>
-        </div>
-        <p>&copy; 2024 EcoGlide Tours. All rights reserved.</p>
-    </div>
-</footer>
+    <!-- JavaScript for Video Loader -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var video = document.getElementById("background-video");
+            var loader = document.getElementById("loader");
 
+            video.addEventListener('canplaythrough', function() {
+                loader.style.display = 'none';
+                video.style.display = 'block';
+            });
+
+            video.addEventListener('loadeddata', function() {
+                loader.style.display = 'none';
+                video.style.display = 'block';
+            });
+        });
+    </script>
+   
 </body>
 </html>
