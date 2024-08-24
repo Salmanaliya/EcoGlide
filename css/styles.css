@@ -57,38 +57,62 @@ body {
     text-align: center;
 }
 
-/* Navigation Bar */
+/* Navbar */
 .navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    color: white;
-    z-index: 3;
-    padding: 5px 0; /* Reduced padding */
-    font-size: 14px; /* Smaller font size */
-}
-
-.navbar .container {
+    position: fixed; /* Fix position to keep it on top of the page */
+    top: 0; /* Align it to the top of the viewport */
+    left: 0; /* Align it to the left of the viewport */
+    width: 100%; /* Full width */
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    justify-content: space-between; /* Distribute space between items */
+    align-items: center;
+    padding: 5px 10px; /* Adjusted padding */
+    background-color: #000000; /* Background color */
+    color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow */
+    z-index: 1000; /* Ensure it’s on top of other elements */
 }
- 
 
 .navbar a {
-    color: white;
-    text-decoration: none;
-    padding: 0 10px; /* Reduced padding */
-    font-weight: 600;
-    line-height: 1.4; /* Adjusted line height */
-    transition: color 0.3s;
+    color: white; /* Text color */
+    text-decoration: none; /* Remove underline */
+    padding: 4px 8px; /* Adjusted padding */
+    font-size: 14px; /* Font size */
+    white-space: nowrap; /* Prevent text from wrapping */
+    display: block; /* Ensure links are block elements for easier clicking */
 }
 
 .navbar a:hover {
-    color: #c8ffeb;
+    background-color: #333; /* Slightly lighter hover background color for contrast */
+    border-radius: 5px; /* Rounded corners */
 }
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column; /* Stack items vertically on smaller screens */
+        align-items: flex-start; /* Align items to the start */
+        padding: 5px; /* Adjust padding for smaller screens */
+    }
+
+    .navbar a {
+        padding: 4px 8px; /* Adjusted padding */
+        font-size: 12px; /* Adjust font size */
+        margin-bottom: 5px; /* Add margin to separate links */
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 5px; /* Adjust padding for very small screens */
+    }
+
+    .navbar a {
+        padding: 3px 6px; /* Further adjusted padding */
+        font-size: 10px; /* Further reduce font size */
+    }
+}
+
+/* Ensure content is not hidden behind the navbar */
 
 
 /* Hero Section */
@@ -344,6 +368,62 @@ body {
     transform: translateY(-10px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
+
+/* Mobile View for Services Section */
+@media (max-width: 768px) {
+    .services-section {
+        height: 100vh; /* Ensure full height */
+        background-attachment: scroll; /* Disable fixed background attachment */
+        background-size: cover; /* Ensure background image covers the section */
+        background-position: center; /* Cente
+    }
+
+    .services-container {
+        padding: 15px; /* Reduce padding for smaller screens */
+        margin: 0; /* Remove margin to fit better on smaller screens */
+    }
+
+    .services-container h2 {
+        font-size: 28px; /* Adjust font size for smaller screens */
+        margin-bottom: 20px; /* Reduce margin for better spacing */
+    }
+
+    .services-container .services {
+        flex-direction: column; /* Stack services vertically */
+        gap: 15px; /* Add gap between stacked items */
+    }
+
+    .service {
+        width: 100%; /* Full width for each service item */
+        margin: 0; /* Remove margin to fit better on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .services-section {
+        padding: 15px; /* Further reduce padding for very small screens */
+    }
+
+    .services-container h2 {
+        font-size: 24px; /* Further reduce font size for very small screens */
+    }
+
+    .services-section p {
+        font-size: 14px; /* Further reduce font size for very small screens */
+    }
+
+    .services-container .services {
+        gap: 10px; /* Reduce gap between stacked items */
+    }
+
+    .service {
+        padding: 15px; /* Reduce padding inside service items */
+    }
+}
+
+
+
+ 
 
 /* Team Section */
 .team-section {
@@ -694,117 +774,78 @@ body {
 
 /* Footer */
 footer {
-    background: #2c2b2b ;/* Dark gray with some transparency */
+    background: #000000; /* Dark gray with some transparency */
     backdrop-filter: blur(10px); /* Apply a blur effect for a glassy look */
     color: white;
-    padding: 20px 0;
+    padding: 10px 0; /* Reduced padding */
     position: relative;
     z-index: 2;
 }
 
+/* Footer Navigation */
 .footer-nav {
     display: flex;
     justify-content: center; /* Center the navigation links */
     flex-wrap: wrap;
-    gap: 15px; /* Space between links */
-    margin-bottom: 10px;
+    gap: 10px; /* Reduced space between links */
+    margin-bottom: 5px; /* Reduced margin */
 }
 
+/* Footer Links */
 .footer-nav a {
     color: #fff;
     text-decoration: none;
     font-weight: 600;
+    font-size: 12px; /* Smaller font size */
     transition: color 0.3s;
 }
 
+/* Hover Effect */
 .footer-nav a:hover {
     color: #c8ffeb; /* Accent color for hover effect */
 }
 
+/* Footer Text */
 footer p {
     text-align: center;
     margin: 0;
-    font-size: 14px;
+    font-size: 12px; /* Smaller font size */
 }
-/* Media Queries for Mobile Devices */
+
+/* Responsive Design for Mobile */
 @media (max-width: 768px) {
-    .hero-section {
-        height: 80vh; /* Reduce height for smaller screens */
+    .footer-nav {
+        gap: 8px; /* Further reduced space between links on smaller screens */
     }
 
-    .hero-content {
-        padding: 10px;
+    .footer-nav a {
+        font-size: 10px; /* Adjust font size for mobile */
     }
 
-    .services-container {
-        padding: 15px;
-        margin: 10px;
-    }
-
-    .service {
-        width: calc(50% - 20px); /* Two columns on smaller screens */
-    }
-
-    .team-member {
-        width: calc(50% - 30px); /* Two columns on smaller screens */
-    }
-
-    .navbar a {
-        padding: 0 10px; /* Reduce padding for smaller screens */
-    }
-
-    .contact-logo {
-        max-width: 80px; /* Reduce logo size for smaller screens */
-    }
-
-    .contact-info h3 {
-        font-size: 24px; /* Adjust font size for better readability */
-    }
-
-    .contact-info p {
-        font-size: 14px; /* Adjust font size for better readability */
+    footer p {
+        font-size: 10px; /* Adjust font size for mobile */
     }
 }
 
 @media (max-width: 480px) {
-    .hero-section {
-        height: 60vh; /* Further reduce height for very small screens */
+    .footer-nav {
+        flex-direction: column; /* Stack links vertically on very small screens */
+        gap: 5px; /* Reduced space between links */
     }
 
-    .hero-content {
-        padding: 5px;
+    .footer-nav a {
+        font-size: 8px; /* Further reduce font size */
+        padding: 4px 0; /* Add some vertical padding */
     }
 
-    .services-container {
-        padding: 10px;
-        margin: 5px;
-    }
-
-    .service {
-        width: 100%; /* Single column on very small screens */
-    }
-
-    .team-member {
-        width: 100%; /* Single column on very small screens */
-    }
-
-    .navbar a {
-        padding: 0 5px; /* Further reduce padding for very small screens */
-        font-size: 14px; /* Reduce font size */
-    }
-
-    .contact-logo {
-        max-width: 60px; /* Further reduce logo size for very small screens */
-    }
-
-    .contact-info h3 {
-        font-size: 20px; /* Adjust font size for better readability */
-    }
-
-    .contact-info p {
-        font-size: 12px; /* Adjust font size for better readability */
+    footer p {
+        font-size: 8px; /* Further reduce font size */
     }
 }
+
+
+
+
 /* How It Works Section */
 .how-it-works-section {
     position: relative;
@@ -881,52 +922,8 @@ footer p {
     line-height: 1.6;
 }
 
-/* Media Queries for Responsive Design */
-@media (max-width: 768px) {
-    .how-it-works-section {
-        height: auto; /* Adjust height for smaller screens */
-        padding: 20px; /* Add padding */
-    }
+ 
 
-    .how-it-works-section h2 {
-        font-size: 28px; /* Adjust font size */
-    }
-
-    .how-it-works-section p {
-        font-size: 16px; /* Adjust font size */
-    }
-
-    .steps-container {
-        gap: 10px;
-    }
-
-    .step {
-        padding: 15px;
-    }
-}
-
-@media (max-width: 480px) {
-    .how-it-works-section {
-        height: auto; /* Adjust height */
-        padding: 15px; /* Add padding */
-    }
-
-    .how-it-works-section h2 {
-        font-size: 24px; /* Adjust font size */
-    }
-
-    .how-it-works-section p {
-        font-size: 14px; /* Adjust font size */
-    }
-
-    .steps-container {
-        gap: 5px;
-    }
-
-    .step {
-        padding: 10px;
-    }
-}
 
 /* Add black border above and below background images */
 section::before, section::after {
@@ -967,3 +964,426 @@ section::after {
     overflow: hidden;
 }
  
+/* Media Queries for Mobile Devices */
+
+/* Media Queries for Mobile Devices */
+
+/* About Section */
+@media (max-width: 768px) {
+    .about-section {
+        height: 100vh; /* Ensure full height */
+        padding: 20px; /* Add padding for better spacing */
+        background-attachment: scroll; /* Disable fixed background attachment */
+        background-size: cover; /* Ensure background image covers the section */
+        background-position: center; /* Center the background image */
+    }
+
+    .about-section h2 {
+        font-size: 28px; /* Adjust font size for better readability */
+    }
+
+    .about-section p {
+        font-size: 16px; /* Adjust font size for better readability */
+    }
+}
+
+@media (max-width: 480px) {
+    .about-section {
+        padding: 15px; /* Reduce padding for very small screens */
+    }
+
+    .about-section h2 {
+        font-size: 24px; /* Further reduce font size */
+    }
+
+    .about-section p {
+        font-size: 14px; /* Further reduce font size */
+    }
+}
+
+/* Video Section */
+@media (max-width: 768px) {
+    .video-section {
+        height: 100vh; /* Ensure full height */
+        display: flex; /* Ensure flex layout for alignment */
+        justify-content: center; /* Center content horizontally */
+        align-items: center; /* Center content vertically */
+    }
+
+    .background-video {
+        object-fit: cover; /* Ensure video covers the section */
+    }
+
+    .overlay {
+        position: absolute; /* Maintain absolute positioning */
+        background-color: rgba(0, 0, 0, 0.5); /* Maintain dark overlay */
+        padding: 20px; /* Add padding */
+        text-align: center; /* Center text alignment */
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        display: flex; /* Flex layout for centering content */
+        align-items: center; /* Center content vertically */
+        justify-content: center; /* Center content horizontally */
+    }
+
+    .overlay h1 {
+        font-size: 28px; /* Smaller font size for mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .overlay h1 {
+        font-size: 20px; /* Further reduce font size for very small screens */
+    }
+}
+
+/* How It Works Section */
+@media (max-width: 768px) {
+    .how-it-works-section {
+         height: 100vh; /* Ensure full height */
+        padding: 20px; /* Add padding for better spacing */
+        background-attachment: scroll; /* Disable fixed background attachment */
+        background-size: cover; /* Ensure background image covers the section */
+        background-position: center; 
+    }
+
+    .how-it-works-section h2 {
+        font-size: 28px; /* Adjust font size */
+    }
+
+    .how-it-works-section p {
+        font-size: 16px; /* Adjust font size */
+    }
+
+   
+}
+
+@media (max-width: 480px) {
+    .how-it-works-section {
+        padding: 15px; /* Reduce padding for very small screens */
+    }
+
+    .how-it-works-section h2 {
+        font-size: 24px; /* Further reduce font size */
+    }
+
+    .how-it-works-section p {
+        font-size: 14px; /* Further reduce font size */
+    }
+
+}
+
+/* Contact Section */
+@media (max-width: 768px) {
+    .contact-section {
+        height: 100vh; /* Ensure full height */
+        padding: 20px; /* Add padding for better spacing */
+        background-attachment: scroll; /* Disable fixed background attachment */
+        background-size: cover; /* Ensure background image covers the section */
+        background-position: center; 
+    }
+
+    .contact-logo {
+        max-width: 60px; /* Adjust logo size */
+    }
+
+    .contact-section h3 {
+        font-size: 28px; /* Adjust font size */
+    }
+
+    .contact-section p {
+        font-size: 16px; /* Adjust font size */
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-logo {
+        max-width: 50px; /* Further reduce logo size */
+    }
+
+    .contact-section h3 {
+        font-size: 24px; /* Further reduce font size */
+    }
+
+    .contact-section p {
+        font-size: 14px; /* Further reduce font size */
+    }
+}
+
+/* Invest Section */
+@media (max-width: 768px) {
+    .market-potential-section {
+        height: 100vh; /* Ensure full height */
+        padding: 20px; /* Add padding for better spacing */
+        background-attachment: scroll; /* Disable fixed background attachment */
+        background-size: cover; /* Ensure background image covers the section */
+        background-position: center; 
+    }
+
+    .market-potential-section h2 {
+        font-size: 28px; /* Adjust font size */
+    }
+    .market-potential-sectionp {
+        font-size: 16px; /* Adjust font size */
+    }
+
+    
+}
+
+@media (max-width: 480px) {
+    .market-potential-sectionh2 {
+        font-size: 24px; /* Further reduce font size */
+    }
+
+    .market-potential-section p {
+        font-size: 14px; /* Further reduce font size */
+    }
+ 
+}
+
+
+/* Invest Section */
+@media (max-width: 768px) {
+    .invest-section {
+        height: 100vh; /* Ensure full height */
+        padding: 20px; /* Add padding for better spacing */
+        background-attachment: scroll; /* Disable fixed background attachment */
+        background-size: cover; /* Ensure background image covers the section */
+        background-position: center; 
+    }
+
+    .invest-section h2 {
+        font-size: 28px; /* Adjust font size */
+    }
+
+    .invest-section p {
+        font-size: 16px; /* Adjust font size */
+    }
+
+    .button-wrapper {
+        margin-top: 15px; /* Adjust margin for button */
+    }
+}
+
+@media (max-width: 480px) {
+    .invest-section h2 {
+        font-size: 24px; /* Further reduce font size */
+    }
+
+    .invest-section p {
+        font-size: 14px; /* Adjust font size */
+    }
+
+    .button-wrapper {
+        margin-top: 15px; /* Further adjust margin for button */
+    }
+}
+
+/* Last Screen Section */
+@media (max-width: 768px) {
+    .last-screen-section {
+        height: 100vh; /* Ensure full height */
+        padding: 20px; /* Add padding for better spacing */
+        background-attachment: scroll; /* Disable fixed background attachment */
+        background-size: cover; /* Ensure background image covers the section */
+        background-position: center; 
+    }
+
+    .last-screen-container {
+        flex-direction: column; /* Stack items vertically */
+    }
+
+    .last-screen-item {
+        max-width: 100%; /* Full width items */
+        max-height: auto; /* Adjust height automatically */
+    }
+}
+
+@media (max-width: 480px) {
+    .last-screen-section {
+        padding: 15px; /* Reduce padding for very small screens */
+    }
+
+    .last-screen-item {
+        max-width: 100%; /* Full width items */
+        max-height: auto; /* Adjust height automatically */
+    }
+}
+
+/* Hero Section */
+@media (max-width: 768px) {
+    .hero-section {
+        height: 100vh; /* Ensure full height */
+        background-attachment: scroll; /* Disable fixed background attachment */
+        background-size: cover; /* Ensure background image covers the section */
+        background-position: center; /* Center the background image */
+    }
+
+    .hero-section h1 {
+        font-size: 28px; /* Adjust font size */
+    }
+    .hero-section p {
+        font-size: 16px; /* Adjust font size */
+    }
+
+    .services-container {
+        padding: 15px;
+        margin: 10px;
+    }
+
+  
+    .service {
+        width: calc(50% - 20px); /* Two columns on smaller screens */
+    }
+
+    
+    .navbar a {
+        padding: 0 10px; /* Reduce padding for smaller screens */
+    }
+
+    
+}
+
+@media (max-width: 480px) {
+    .hero-section {
+        height: 100vh; /* Ensure full height */
+        padding: 0; /* Remove padding if any */
+    }
+
+    .hero-section h1 {
+        font-size: 24px; /* Further reduce font size */
+    }
+    .hero-section p {
+        font-size: 14px; /* Further reduce font size */
+    }
+    
+
+    .services-container {
+        padding: 10px;
+        margin: 5px;
+    }
+
+
+    .service {
+        width: 100%; /* Single column on very small screens */
+    }
+    
+
+    
+
+    .team-member {
+        width: 100%; /* Single column on very small screens */
+    }
+
+    .navbar a {
+        padding: 0 5px; /* Further reduce padding for very small screens */
+        font-size: 14px; /* Reduce font size */
+    }
+
+    .footer-nav a {
+        padding: 0 5px; /* Further reduce padding for very small screens */
+        font-size: 14px; /* Reduce font size */
+    }
+    
+}
+
+ 
+
+ 
+/* Menu */
+.menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Darker glassy background */
+    backdrop-filter: blur(8px); /* Slightly less blur */
+    padding: 5px 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+    display: flex;
+    justify-content: space-between; /* Space between toggle and menu */
+    align-items: center;
+}
+
+/* Toggle Button */
+.menu-toggle {
+    display: none; /* Hide by default */
+    cursor: pointer;
+}
+
+.menu-icon {
+    font-size: 24px; /* Size of the hamburger icon */
+    color: white;
+}
+
+/* Menu List */
+.menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* Horizontal display on desktop */
+}
+
+/* Menu List Items */
+.menu li {
+    margin: 0 10px; /* Space between menu items */
+}
+
+/* Menu Links */
+.menu a {
+    color: white; /* Text color */
+    text-decoration: none; /* Remove underline */
+    padding: 8px 15px; /* Padding around text */
+    font-size: 14px; /* Font size */
+    display: block; /* Ensure padding works */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s; /* Smooth hover effect */
+    background: rgba(0, 0, 0, 0.3); /* Slightly transparent dark background */
+}
+
+/* Menu Links Hover */
+.menu a:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Lighter background on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .menu ul {
+        display: none; /* Hide menu by default on small screens */
+        flex-direction: column; /* Stack items vertically */
+        width: 100%; /* Full width */
+        background: rgba(0, 0, 0, 0.5); /* Darker glassy background */
+        backdrop-filter: blur(8px); /* Slightly less blur */
+        position: absolute;
+        top: 50px; /* Adjust based on the height of the menu */
+        left: 0;
+        z-index: 10000; /* Ensure it appears above other content */
+        padding: 10px 0; /* Add padding for menu items */
+    }
+
+    .menu ul.show {
+        display: flex; /* Show menu when active */
+    }
+
+    .menu-toggle {
+        display: block; /* Show toggle button on small screens */
+    }
+
+    .menu a {
+        padding: 12px 20px; /* Adjust padding for mobile */
+        font-size: 16px; /* Adjust font size for mobile */
+        background: rgba(0, 0, 0, 0.4); /* Darker glassy background */
+    }
+}
+
+@media (max-width: 480px) {
+    .menu a {
+        font-size: 14px; /* Further adjust font size */
+        padding: 10px 15px; /* Further adjust padding */
+    }
+
+    .menu-icon {
+        font-size: 20px; /* Adjust icon size */
+    }
+}
