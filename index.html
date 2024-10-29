@@ -157,14 +157,14 @@
     <section id="last-screen" class="last-screen-section">
         <div class="last-screen-container">
             <!-- Left Arrow -->
-            <div class="arrow left-arrow">&#9664;</div>
+            <div id="left-arrow" class="arrow left-arrow">&#9664;</div>
     
             <!-- Content Container -->
             <div class="last-screen-content">
                 <h2>Explore Our Offerings</h2>
     
                 <!-- Image List -->
-                <div class="last-screen-list">
+                <div id="imageList" class="last-screen-list">
                     <!-- Image Items -->
                     <div class="last-screen-item">
                         <img src="images/hero-image.webp" alt="Description 1" class="last-screen-image">
@@ -195,9 +195,44 @@
             </div>
     
             <!-- Right Arrow -->
-            <div class="arrow right-arrow">&#9654;</div>
+            <div id="right-arrow" class="arrow right-arrow">&#9654;</div>
         </div>
     </section>
+    
+    <script>
+        // JavaScript for controlling image scrolling
+        const imageList = document.getElementById('imageList');
+        const leftArrow = document.getElementById('left-arrow');
+        const rightArrow = document.getElementById('right-arrow');
+        const items = document.querySelectorAll('.last-screen-item');
+        let currentIndex = 0;
+    
+        // Function to update scroll position
+        function updateScroll() {
+            const itemWidth = items[0].offsetWidth + 20; // 20px is the gap between items
+            imageList.scrollLeft = currentIndex * itemWidth;
+        }
+    
+        // Scroll to the next image
+        rightArrow.addEventListener('click', () => {
+            if (currentIndex < items.length - 1) {
+                currentIndex++;
+            } else {
+                currentIndex = 0; // Loop back to the first image
+            }
+            updateScroll();
+        });
+    
+        // Scroll to the previous image
+        leftArrow.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+            } else {
+                currentIndex = items.length - 1; // Loop back to the last image
+            }
+            updateScroll();
+        });
+    </script>
     
 
      <!-- Contact Section -->
@@ -207,7 +242,7 @@
             <h3>Contact Us</h3>
             <p>Have questions, feedback, or interested in partnership opportunities? We'd love to hear from you. Reach out using the contact details below.</p>
             <div class="contact-details">
-                <a href="mailto:abusalman.munshorsemen@gmail.com" class="contact-link" title="Email us at abusalman.munshorsemen@gmail.com">
+                <a href="mailto:abu.ecoglide.com" class="contact-link" title="Email us at abusalman.munshorsemen@gmail.com">
                     <i class="fas fa-envelope"></i> Email
                 </a>
                 <a href="tel:+919789689001" class="contact-link" title="Call us at +91 97896 89001">
