@@ -667,15 +667,23 @@ body {
     100% { transform: rotate(360deg); }
 }
 
-.last-screen-section {
-    position: relative;
-    background-color: #000000;
-    color: white;
-    padding: 20px 0;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+@media (min-width: 769px) {
+    /* Desktop styles */
+    .last-screen-section {
+        position: relative;
+        background-image: url('../images/offering.jpg'); /* Background image */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+        height: 100vh; /* Full screen height */
+        
+        display: flex;
+        align-items: center; /* Center vertically */
+        justify-content: center; /* Center horizontally */
+        box-shadow: 0 -5px 0 0 rgba(0, 0, 0, 0.7), 0 5px 0 0 rgba(0, 0, 0, 0.7); /* Black border effect */
+        
 }
 
 .last-screen-container {
@@ -783,6 +791,8 @@ body {
     cursor: pointer;
     border-radius: 15px; /* Ensure rounded corners */
 }
+}
+
 
 /* Footer */
 footer {
