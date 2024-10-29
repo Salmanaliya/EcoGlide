@@ -200,64 +200,36 @@
     </section>
 
     <script>
-document.addEventListener("DOMContentLoaded", function () {
-    const list = document.querySelector(".last-screen-list");
-    const items = document.querySelectorAll(".last-screen-item");
-    const leftArrow = document.querySelector(".left-arrow");
-    const rightArrow = document.querySelector(".right-arrow");
-
+// JavaScript for handling navigation between images
+document.addEventListener('DOMContentLoaded', function() {
+    const images = document.querySelectorAll('.last-screen-item');
+    const leftArrow = document.querySelector('.left-arrow');
+    const rightArrow = document.querySelector('.right-arrow');
     let currentIndex = 0;
 
-    // Function to scroll to a specific item based on the index
-    function scrollToIndex(index) {
-        const scrollAmount = items[index].offsetLeft - list.offsetLeft;
-        list.scrollTo({
-            left: scrollAmount,
-            behavior: "smooth"
+    // Function to update the visibility of images based on the index
+    function updateImages() {
+        images.forEach((image, index) => {
+            image.style.display = index === currentIndex ? 'block' : 'none';
         });
     }
 
-    // Event listener for the right arrow
-    rightArrow.addEventListener("click", function () {
-        currentIndex = (currentIndex + 1) % items.length;
-        scrollToIndex(currentIndex);
+    // Initialize the first image display
+    updateImages();
+
+    // Right Arrow Click - Next Image
+    rightArrow.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % images.length; // Cycle forward
+        updateImages();
     });
 
-    // Event listener for the left arrow
-    leftArrow.addEventListener("click", function () {
-        currentIndex = (currentIndex - 1 + items.length) % items.length;
-        scrollToIndex(currentIndex);
-    });
-
-    // Swipe functionality for mobile devices
-    let startX = 0;
-    list.addEventListener("touchstart", function (event) {
-        startX = event.touches[0].clientX;
-    });
-
-    list.addEventListener("touchend", function (event) {
-        const endX = event.changedTouches[0].clientX;
-        if (startX - endX > 50) {
-            // Swipe left to go to the next image
-            currentIndex = (currentIndex + 1) % items.length;
-            scrollToIndex(currentIndex);
-        } else if (endX - startX > 50) {
-            // Swipe right to go to the previous image
-            currentIndex = (currentIndex - 1 + items.length) % items.length;
-            scrollToIndex(currentIndex);
-        }
-    });
-
-    // Optional: Reset currentIndex if user scrolls manually
-    list.addEventListener("scroll", function () {
-        items.forEach((item, index) => {
-            if (item.getBoundingClientRect().left >= list.getBoundingClientRect().left &&
-                item.getBoundingClientRect().right <= list.getBoundingClientRect().right) {
-                currentIndex = index;
-            }
-        });
+    // Left Arrow Click - Previous Image
+    leftArrow.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + images.length) % images.length; // Cycle backward
+        updateImages();
     });
 });
+
 </script>
 
         
