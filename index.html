@@ -198,56 +198,39 @@
             <div class="arrow right-arrow">&#9654;</div>
         </div>
     </section>
-
- <script>
-        let touchStartX = 0;
-        let touchEndX = 0;
-        const images = document.querySelectorAll('.last-screen-item');
-        let currentIndex = 0;
-
-        // Add touch start and end event listeners for swiping
-        document.querySelector('.last-screen-list').addEventListener('touchstart', (e) => {
-            touchStartX = e.changedTouches[0].screenX;
-        });
-
-        document.querySelector('.last-screen-list').addEventListener('touchend', (e) => {
-            touchEndX = e.changedTouches[0].screenX;
-            handleSwipe();
-        });
-
-        function handleSwipe() {
-            if (touchEndX < touchStartX) {
-                // Swipe left: Show next image
-                currentIndex = (currentIndex + 1) % images.length;
-            }
-            if (touchEndX > touchStartX) {
-                // Swipe right: Show previous image
-                currentIndex = (currentIndex - 1 + images.length) % images.length;
-            }
-            updateImages();
-        }
-
-        function updateImages() {
-            images.forEach((item, index) => {
-                item.classList.remove('active');
-                if (index === currentIndex) {
-                    item.classList.add('active');
-                }
-            });
-        }
-
-        function showImage(item) {
-            // Make clicked item active
-            const index = Array.from(images).indexOf(item);
-            currentIndex = index;
-            updateImages();
-        }
-
-        // Initialize with the first image active
-        updateImages();
-    </script>
-        
     
+    <script>
+        // JavaScript for handling navigation between images
+            document.addEventListener('DOMContentLoaded', function() {
+                const images = document.querySelectorAll('.last-screen-item');
+                const leftArrow = document.querySelector('.left-arrow');
+                const rightArrow = document.querySelector('.right-arrow');
+                let currentIndex = 0;
+
+                // Function to update the visibility of images based on the index
+                function updateImages() {
+                    images.forEach((image, index) => {
+                        image.style.display = index === currentIndex ? 'block' : 'none';
+                    });
+                }
+
+                // Initialize the first image display
+                updateImages();
+
+                // Right Arrow Click - Next Image
+                rightArrow.addEventListener('click', () => {
+                    currentIndex = (currentIndex + 1) % images.length; // Cycle forward
+                    updateImages();
+                });
+
+                // Left Arrow Click - Previous Image
+                leftArrow.addEventListener('click', () => {
+                    currentIndex = (currentIndex - 1 + images.length) % images.length; // Cycle backward
+                    updateImages();
+                });
+            });
+
+    </script>
 
      <!-- Contact Section -->
      <section id="contact" class="contact-section">
