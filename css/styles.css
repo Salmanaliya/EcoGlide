@@ -667,9 +667,7 @@ body {
     100% { transform: rotate(360deg); }
 }
 
-@media (min-width: 769px) {
-    /* Desktop styles */
- .last-screen-section {
+.last-screen-section {
     position: relative;
     background-color: #000000;
     color: white;
@@ -679,7 +677,6 @@ body {
     align-items: center;
     justify-content: center;
 }
-
 
 .last-screen-container {
     position: relative;
@@ -786,8 +783,6 @@ body {
     cursor: pointer;
     border-radius: 15px; /* Ensure rounded corners */
 }
-}
-
 
 /* Footer */
 footer {
