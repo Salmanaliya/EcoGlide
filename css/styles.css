@@ -751,8 +751,8 @@ body {
     color: white;
     text-align: center;
     flex: 0 0 auto;
-    max-width: 300px;
-    max-height: 200px;
+    max-width: 600px;
+    max-height: 500px;
     display: flex;
     flex-direction: column;
     align-items: center;
