@@ -198,37 +198,66 @@
             <div class="arrow right-arrow">&#9654;</div>
         </div>
     </section>
-    
     <script>
-       // JavaScript for handling navigation between images
-    document.addEventListener('DOMContentLoaded', function() {
-        const images = document.querySelectorAll('.last-screen-item');
-        const leftArrow = document.querySelector('.left-arrow');
-        const rightArrow = document.querySelector('.right-arrow');
-        let currentIndex = 0;
+  document.addEventListener('DOMContentLoaded', function() {
+    const images = document.querySelectorAll('.last-screen-item');
+    const leftArrow = document.querySelector('.left-arrow');
+    const rightArrow = document.querySelector('.right-arrow');
+    let currentIndex = 0;
 
-        // Function to update the visibility of images based on the index
-        function updateImages() {
-            images.forEach((image, index) => {
-                image.style.display = index === currentIndex ? 'block' : 'none';
-            });
+    function updateLayout() {
+        if (window.innerWidth <= 768) {
+            applyMobileCarousel();
+        } else {
+            applyDesktopCarousel();
         }
+    }
 
-        // Initialize the first image display
-        updateImages();
+    function applyMobileCarousel() {
+        images.forEach((image, index) => {
+            image.style.display = index === currentIndex ? 'block' : 'none';
+
+            const imgElement = image.querySelector('.last-screen-image');
+            imgElement.onclick = () => {
+                // Toggle the active class
+                if (image.classList.contains('active')) {
+                    image.classList.remove('active');
+                } else {
+                    images.forEach(item => item.classList.remove('active')); // Close other expanded images
+                    image.classList.add('active'); // Expand tapped image
+                }
+                console.log(`Tapped image ${index}, active status: ${image.classList.contains('active')}`);
+            };
+        });
 
         // Right Arrow Click - Next Image
-        rightArrow.addEventListener('click', () => {
-            currentIndex = (currentIndex + 1) % images.length; // Cycle forward
-            updateImages();
-        });
+        rightArrow.onclick = () => {
+            currentIndex = (currentIndex + 1) % images.length;
+            applyMobileCarousel();
+        };
 
         // Left Arrow Click - Previous Image
-        leftArrow.addEventListener('click', () => {
-            currentIndex = (currentIndex - 1 + images.length) % images.length; // Cycle backward
-            updateImages();
+        leftArrow.onclick = () => {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            applyMobileCarousel();
+        };
+    }
+
+    function applyDesktopCarousel() {
+        images.forEach(image => {
+            image.style.display = 'flex';
         });
-    });
+
+        rightArrow.onclick = null;
+        leftArrow.onclick = null;
+    }
+
+    updateLayout();
+    window.addEventListener('resize', updateLayout);
+});
+
+
+
 
     </script>
 

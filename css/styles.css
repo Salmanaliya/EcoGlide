@@ -751,8 +751,8 @@ body {
     color: white;
     text-align: center;
     flex: 0 0 auto;
-    max-width: 600px;
-    max-height: 500px;
+    max-width: 300px;
+    max-height: 200px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1254,7 +1254,9 @@ section::after {
         cursor: pointer;
         border-radius: 15px; /* Ensure rounded corners */
     }
+    
 }
+ 
 
 @media (max-width: 480px) {
     .last-screen-section {
