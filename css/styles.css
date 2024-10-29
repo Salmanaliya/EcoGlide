@@ -1190,114 +1190,86 @@ section::after {
         margin-top: 15px; /* Further adjust margin for button */
     }
 }
-/* Last Screen Section */
-@media (max-width: 768px) {
-    .last-screen-section {
-        height: 100vh; /* Ensure full height */
-        padding: 20px; /* Add padding for better spacing */
-        background-attachment: scroll; /* Disable fixed background attachment */
-        background-size: cover; /* Ensure background image covers the section */
-        background-position: center;
-        position: relative; /* Required for absolute positioning of arrows */
-        overflow: hidden; /* Hide overflow to remove horizontal scroll */
-    }
-    .last-screen-section h2 {
-        font-size: 28px; /* Adjust font size */
-    }
+ /* Last Screen Section */
+        @media (max-width: 768px) {
+            .last-screen-section {
+                height: 100vh; /* Ensure full height */
+                padding: 10px; /* Add padding for better spacing */
+                background-attachment: scroll; /* Disable fixed background attachment */
+                overflow: hidden; /* Hide overflow to remove horizontal scroll */
+            }
 
-    .last-screen-container {
-        flex-direction: column; /* Stack items vertically */
-        align-items: center; /* Center items horizontally */
-    }
+            .last-screen-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
 
-    .last-screen-item {
-        max-width: 100%; /* Full width items */
-        max-height: auto; /* Adjust height automatically */
-    }
+            .last-screen-list {
+                display: flex;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                gap: 15px;
+                padding-bottom: 15px;
+            }
 
-    .last-screen-list {
-        overflow-x: hidden; /* Hide horizontal scroll */
-    }
+            .last-screen-item {
+                scroll-snap-align: center;
+                flex-shrink: 0;
+                width: 80vw; /* Fit images to viewport width */
+                max-height: 60vh; /* Limit height to fit screen */
+            }
 
-    .arrow {
-        position: absolute;
-        bottom: 20px; /* Distance from the bottom */
-        background-color: rgba(0, 0, 0, 0.5); /* Glassy background */
-        color: white; /* White arrow color */
-        font-size: 30px; /* Font size for arrows */
-        padding: 5px;
-        border-radius: 50%;
-        cursor: pointer;
-        z-index: 10;
-    }
+            .last-screen-image {
+                width: 100%;
+                height: auto;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                transition: transform 0.3s ease;
+            }
 
-    .left-arrow {
-        left: 5%; /* Distance from the left edge */
-    }
+            .last-screen-item.active .last-screen-image {
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%) scale(1.2);
+                max-width: 90vw; /* Adjust size as needed */
+                max-height: 80vh; /* Adjust size as needed */
+                z-index: 1000;
+                background-color: rgba(0, 0, 0, 0.7);
+            }
 
-    .right-arrow {
-        right: 5%; /* Distance from the right edge */
-    }
+            .arrow {
+                font-size: 20px; /* Adjust arrow font size */
+                padding: 10px;
+                background-color: rgba(0, 0, 0, 0.5); /* Glassy background */
+                color: white; /* Arrow color */
+                border-radius: 50%;
+                box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+                cursor: pointer;
+                z-index: 10;
+                bottom: 20px; /* Distance from the bottom */
+            }
 
-    .last-screen-item.active ~ .last-screen-list {
-        filter: blur(8px); /* Apply blur to sibling elements */
-    }
+            .left-arrow {
+                left: 10px; /* Distance from the left edge */
+            }
 
-    .last-screen-item.active .last-screen-image {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%) scale(1.5);
-        max-width: 80vw; /* Adjust size as needed */
-        max-height: 80vh; /* Adjust size as needed */
-        z-index: 1000;
-        cursor: pointer;
-        border-radius: 15px; /* Ensure rounded corners */
-    }
-}
+            .right-arrow {
+                right: 10px; /* Distance from the right edge */
+            }
+        }
 
-@media (max-width: 480px) {
-    .last-screen-section {
-        padding: 15px; /* Reduce padding for very small screens */
-    }
+        @media (max-width: 480px) {
+            .last-screen-item {
+                width: 85vw; /* Adjust width for smaller screens */
+            }
 
-    .last-screen-hero-section h2 {
-        font-size: 24px; /* Further reduce font size */
-    }
-
-
-    .arrow {
-        font-size: 25px; /* Slightly smaller font size for very small screens */
-        padding: 12px; /* Adjust padding */
-        bottom: 5px; /* Keep the minimal distance from the bottom */
-    }
-
-    .left-arrow {
-        left: 5px; /* Adjust distance from the left edge */
-    }
-
-    .right-arrow {
-        right: 5px; /* Adjust distance from the right edge */
-    }
-
-    .last-screen-item.active ~ .last-screen-list {
-        filter: blur(6px); /* Apply blur to sibling elements */
-    }
-
-    .last-screen-item.active .last-screen-image {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%) scale(1.3); /* Adjust size for smaller screens */
-        max-width: 90vw; /* Adjust size as needed */
-        max-height: 90vh; /* Adjust size as needed */
-        z-index: 1000;
-        cursor: pointer;
-        border-radius: 15px; /* Ensure rounded corners */
-    }
-}
-
-
+            .arrow {
+                font-size: 18px; /* Smaller font size for very small screens */
+                padding: 8px; /* Adjust padding */
+            }
+        }
 
 /* Hero Section */
 @media (max-width: 768px) {
