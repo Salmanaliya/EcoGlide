@@ -199,36 +199,38 @@
         </div>
     </section>
     
-   // JavaScript for handling navigation between images
-document.addEventListener('DOMContentLoaded', function() {
-    const images = document.querySelectorAll('.last-screen-item');
-    const leftArrow = document.querySelector('.left-arrow');
-    const rightArrow = document.querySelector('.right-arrow');
-    let currentIndex = 0;
+<script>
+       // JavaScript for handling navigation between images
+    document.addEventListener('DOMContentLoaded', function() {
+        const images = document.querySelectorAll('.last-screen-item');
+        const leftArrow = document.querySelector('.left-arrow');
+        const rightArrow = document.querySelector('.right-arrow');
+        let currentIndex = 0;
 
-    // Function to update the visibility of images based on the index
-    function updateImages() {
-        images.forEach((image, index) => {
-            image.style.display = index === currentIndex ? 'block' : 'none';
+        // Function to update the visibility of images based on the index
+        function updateImages() {
+            images.forEach((image, index) => {
+                image.style.display = index === currentIndex ? 'block' : 'none';
+            });
+        }
+
+        // Initialize the first image display
+        updateImages();
+
+        // Right Arrow Click - Next Image
+        rightArrow.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % images.length; // Cycle forward
+            updateImages();
         });
-    }
 
-    // Initialize the first image display
-    updateImages();
-
-    // Right Arrow Click - Next Image
-    rightArrow.addEventListener('click', () => {
-        currentIndex = (currentIndex + 1) % images.length; // Cycle forward
-        updateImages();
+        // Left Arrow Click - Previous Image
+        leftArrow.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + images.length) % images.length; // Cycle backward
+            updateImages();
+        });
     });
 
-    // Left Arrow Click - Previous Image
-    leftArrow.addEventListener('click', () => {
-        currentIndex = (currentIndex - 1 + images.length) % images.length; // Cycle backward
-        updateImages();
-    });
-});
-
+    </script>
      <!-- Contact Section -->
      <section id="contact" class="contact-section">
         <div class="contact-container glassy-container">
